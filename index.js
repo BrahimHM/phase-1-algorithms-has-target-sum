@@ -1,17 +1,29 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  const arraySet = new Set();
+  for (let num of array) {
+    if (arraySet.has(target - num)) {
+      return true;
+    }
+    arraySet.add(num);
+  }
+  return false;
 }
-
 /* 
   Write the Big O time complexity of your function here
+  O(n) complexity
 */
-
 /* 
   Add your pseudocode here
 */
 
 /*
   Add written explanation of your solution here
+  I am using a hash map for make a complexity code in O(n) 
+  first I create a arraySet variable as a Set() then
+  we have a neasted loop and on each iteration we verified if the (target - cuurent value )there exist on the arraySet() or not
+  if exist that's mean exist an other value in array with the current value adds up to the target number but 
+  if doesn't exist (target - cuurent value ) on the arraySet() we put the current value to the arraySet .
+  finally after the loop we return false that's mean if the code run this instruction ,we didn't find any pair adds up to the target value
 */
 
 // You can run `node index.js` to view these console logs
